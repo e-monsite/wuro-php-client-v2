@@ -35,13 +35,13 @@ class WuroProductsApi
     public function getProducts(array $queryParams = [])
     {
         $query = Query::build($queryParams);
-        $uri = 'products' . ($query ? "?{$query}" : '');
+        $uri = 'products';
 
         try {
             $response = $this->client->send(
                 new Request(
                     'GET',
-                    $this->config->getHost() . $uri,
+                    $this->config->getHost() . $uri . ($query ? "?{$query}" : ''),
                     HeaderFactory::getHeader(
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
@@ -68,13 +68,13 @@ class WuroProductsApi
     public function getProduct(string $productId, array $queryParams = [])
     {
         $query = Query::build($queryParams);
-        $uri = 'product/' . $productId . ($query ? "?{$query}" : '');
+        $uri = 'product/' . $productId;
 
         try {
             $response = $this->client->send(
                 new Request(
                     'GET',
-                    $this->config->getHost() . $uri,
+                    $this->config->getHost() . $uri .  ($query ? "?{$query}" : ''),
                     HeaderFactory::getHeader(
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
