@@ -1,0 +1,26 @@
+{
+  "name": "e-monsite/wuro-php-client-v2",
+  "description": "wuro api php client",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "wuro client",
+  ],
+  "homepage": "https://github.com/e-monsite/wuro-php-client",
+  "authors": [
+    {
+      "name": "Anthony Rousseau",
+      "email": "anthony@e-monsite.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "WuroClient\\Api\\": "lib/"
+    }
+  },
+  "require": {
+    "php": "^8",
+    "guzzlehttp/guzzle": "^7"
+  }
+}
