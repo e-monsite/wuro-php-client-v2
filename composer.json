@@ -13,10 +13,14 @@
       "email": "anthony@e-monsite.com"
     }
   ],
-  "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
       "WuroClient\\Api\\": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WuroClient\\Api\\Tests": "test/"
     }
   },
   "require": {
