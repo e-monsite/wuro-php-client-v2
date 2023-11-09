@@ -26,5 +26,6 @@
   "require": {
     "php": "^8",
     "guzzlehttp/guzzle": "^7"
-  }
+  },
+  "version": "1.0.0"
 }
