@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\HeaderFactory;
+use WuroClient\Api\WuroApiException;
 
 class WuroProductsApi
 {
@@ -28,19 +30,23 @@ class WuroProductsApi
         $query = Query::build($queryParams);
         $uri = 'products' . ($query ? "?{$query}" : '');
 
-        $response = $this->client->send(
-            new Request(
-                'GET',
-                $this->config->getHost() . $uri,
-                HeaderFactory::getHeader(
-                    $this->config->getApiPublicKey(),
-                    $this->config->getApiSecretKey(),
+        try {
+            $response = $this->client->send(
+                new Request(
                     'GET',
-                    $uri
+                    $this->config->getHost() . $uri,
+                    HeaderFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'GET',
+                        $uri
+                    )
                 )
-            )
-        );
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
 
-        dd($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents());
     }
 }
