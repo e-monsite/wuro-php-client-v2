@@ -41,6 +41,6 @@ class WuroProductsApi
             )
         );
 
-        dd($response->getBody());
+        dd($response->getBody()->getContents());
     }
 }
