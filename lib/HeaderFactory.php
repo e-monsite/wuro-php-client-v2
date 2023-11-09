@@ -6,7 +6,7 @@ namespace WuroClient\Api;
 
 abstract class HeaderFactory
 {
-    public static function getHeader(string $apiPublicKey, string $apiSecretKey, string $uri, string $method, string $contentType ='application/json'): array
+    public static function getHeader(string $apiPublicKey, string $apiSecretKey, string $method, string $uri, string $contentType ='application/json'): array
     {
         $dateTime = time();
         $CONCAT = $method . "/" . $uri . $dateTime;
