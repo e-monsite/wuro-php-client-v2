@@ -27,7 +27,7 @@ class WuroProductsApi
     {
         $query = Query::build($queryParams);
         $uri = 'products' . ($query ? "?{$query}" : '');
-
+dd($uri);
         $response = $this->client->send(
             new Request(
                 'GET',
