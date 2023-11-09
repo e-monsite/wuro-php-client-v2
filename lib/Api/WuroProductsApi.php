@@ -25,10 +25,50 @@ class WuroProductsApi
         $this->config = $configuration;
     }
 
+    /**
+     * Get list of products
+     * @param array $queryParams
+     * @return mixed
+     * @throws WuroApiException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getProducts(array $queryParams = [])
     {
         $query = Query::build($queryParams);
         $uri = 'products' . ($query ? "?{$query}" : '');
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'GET',
+                    $this->config->getHost() . $uri,
+                    HeaderFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'GET',
+                        $uri
+                    )
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
+
+    /**
+     * Get one product
+     * @param string $productId
+     * @param array $queryParams
+     * @return mixed
+     * @throws WuroApiException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getProduct(string $productId, array $queryParams = [])
+    {
+        $query = Query::build($queryParams);
+        $uri = 'product/' . $productId . ($query ? "?{$query}" : '');
 
         try {
             $response = $this->client->send(
