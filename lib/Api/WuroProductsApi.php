@@ -26,7 +26,7 @@ class WuroProductsApi
     public function getProducts(array $queryParams = [])
     {
         $query = Query::build($queryParams);
-        $uri = '/products' . ($query ? "?{$query}" : '');
+        $uri = 'products' . ($query ? "?{$query}" : '');
 
         $response = $this->client->send(
             new Request(
