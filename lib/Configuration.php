@@ -10,7 +10,7 @@ class Configuration
 
     private string $apiSecretKey;
 
-    private string $host = 'https://wuro.pro/api/v3.2';
+    private string $host = 'https://wuro.pro/api/v3.2/';
 
     public function __construct(string $apiPublicKey, string $apiSecretKey)
     {
