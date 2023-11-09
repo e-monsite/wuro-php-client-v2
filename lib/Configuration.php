@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WuroClient\Api\Model;
+namespace WuroClient\Api;
 
 class Configuration
 {
