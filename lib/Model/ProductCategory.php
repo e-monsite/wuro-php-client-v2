@@ -6,16 +6,36 @@ namespace WuroClient\Api\Model;
 
 class ProductCategory extends AbstractModel
 {
-    public $_id;
+    private $_id;
 
-    public $state;
+    private $state;
 
-    public $parent_category;
+    private $parent_category;
 
-    public $name;
+    private $name;
 
     public function __construct($data = [])
     {
         $this->hydrate($data);
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    public function getParentCategory()
+    {
+        return $this->parent_category;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }
