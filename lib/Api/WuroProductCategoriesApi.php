@@ -55,6 +55,6 @@ class WuroProductCategoriesApi
             $categories[$category->_id] = new ProductCategory($category);
         }
 
-        return $content;
+        return $categories;
     }
 }
