@@ -6,7 +6,7 @@ namespace WuroClient\Api\Model;
 
 class ProductCategory extends AbstractModel
 {
-    public $id;
+    public $_id;
 
     public $state;
 

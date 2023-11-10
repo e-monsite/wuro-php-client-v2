@@ -52,7 +52,7 @@ class WuroProductCategoriesApi
         $content = json_decode($response->getBody()->getContents());
 
         foreach ($content->productCategories as $category) {
-            $categories[$category->id] = new ProductCategory($category);
+            $categories[$category->_id] = new ProductCategory($category);
         }
 
         return $categories;
