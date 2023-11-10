@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\HeaderFactory;
+use WuroClient\Api\Model\ProductCategory;
 use WuroClient\Api\WuroApiException;
 
 class WuroProductCategoriesApi
@@ -27,6 +28,7 @@ class WuroProductCategoriesApi
 
     public function getCategories(array $queryParams = [])
     {
+        $categories = [];
         $query = Query::build($queryParams);
         $uri = 'product-categories';
 
@@ -47,6 +49,12 @@ class WuroProductCategoriesApi
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
-        return json_decode($response->getBody()->getContents());
+        $content = json_decode($response->getBody()->getContents());
+
+        foreach ($content->productCategories as $category) {
+            $categories[$category->_id] = new ProductCategory($category);
+        }
+
+        return $content;
     }
 }
