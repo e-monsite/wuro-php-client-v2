@@ -18,12 +18,16 @@ class WuroProductsApi
     private $client;
     private $config;
 
+    private bool $debug;
+
     public function __construct(
         ClientInterface $client,
-        Configuration $configuration
+        Configuration $configuration,
+        bool $debug = false,
     ) {
         $this->client = $client;
         $this->config = $configuration;
+        $this->debug = $debug;
     }
 
     /**
@@ -53,6 +57,10 @@ class WuroProductsApi
             );
         } catch (RequestException $exception) {
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        if ($this->debug === true) {
+            return json_decode($response->getBody()->getContents());
         }
 
         $content = json_decode($response->getBody()->getContents());
