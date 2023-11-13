@@ -78,6 +78,6 @@ class Product extends AbstractModel
 
     public function getCategory()
     {
-        return $this->categorie;
+        return $this->category;
     }
 }
