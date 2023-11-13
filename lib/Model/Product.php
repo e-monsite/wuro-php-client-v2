@@ -24,7 +24,7 @@ class Product extends AbstractModel
 
     public $tva_rate;
 
-    public $categorie;
+    public $category;
 
     public function __construct($data = [])
     {
@@ -74,5 +74,10 @@ class Product extends AbstractModel
     public function getTvaRate()
     {
         return $this->tva_rate;
+    }
+
+    public function getCategory()
+    {
+        return $this->categorie;
     }
 }
