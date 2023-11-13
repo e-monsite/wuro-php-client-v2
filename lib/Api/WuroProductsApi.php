@@ -55,7 +55,13 @@ class WuroProductsApi
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
-        return json_decode($response->getBody()->getContents());
+        $content = json_decode($response->getBody()->getContents());
+
+        foreach ($content->products as $product) {
+            $products[$product->_id] = new Product($product);
+        }
+
+        return $products;
     }
 
     /**
@@ -89,12 +95,6 @@ class WuroProductsApi
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
-        $content = json_decode($response->getBody()->getContents());
-
-        foreach ($content->products as $product) {
-            $products[$product->_id] = new Product($product);
-        }
-
-        return $products;
+       return json_decode($response->getBody()->getContents());
     }
 }
