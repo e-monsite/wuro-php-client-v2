@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\HeaderFactory;
+use WuroClient\Api\Model\Product;
 use WuroClient\Api\WuroApiException;
 
 class WuroProductsApi
@@ -67,6 +68,7 @@ class WuroProductsApi
      */
     public function getProduct(string $productId, array $queryParams = [])
     {
+        $products = [];
         $query = Query::build($queryParams);
         $uri = 'product/' . $productId;
 
@@ -87,6 +89,12 @@ class WuroProductsApi
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
-        return json_decode($response->getBody()->getContents());
+        $content = json_decode($response->getBody()->getContents());
+
+        foreach ($content->products as $product) {
+            $products[$product->_id] = new Product($product);
+        }
+
+        return $products;
     }
 }
