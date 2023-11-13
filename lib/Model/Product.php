@@ -24,6 +24,8 @@ class Product extends AbstractModel
 
     public $tva_rate;
 
+    public $categorie;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
