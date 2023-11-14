@@ -52,4 +52,9 @@ class ProductVariant extends AbstractModel
     {
         return $this->reference;
     }
+
+    public function getVariantValues()
+    {
+        return explode('/', $this->title);
+    }
 }
