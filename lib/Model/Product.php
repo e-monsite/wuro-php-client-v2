@@ -28,6 +28,10 @@ class Product extends AbstractModel
 
     public $images;
 
+    public $options;
+
+    public $variants;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -82,9 +86,19 @@ class Product extends AbstractModel
     {
         return $this->category;
     }
-    
+
     public function getImages()
     {
         return $this->images;
+    }
+
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    public function getVariants()
+    {
+        return $this->variants;
     }
 }
