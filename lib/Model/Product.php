@@ -54,6 +54,16 @@ class Product extends AbstractModel
         return $this->stock;
     }
 
+    public function getStockQty()
+    {
+        return $this->getStock()->nb_stock;
+    }
+
+    public function isForceSell()
+    {
+        return $this->getStock()->forceSell;
+    }
+
     public function getState()
     {
         return $this->state;
