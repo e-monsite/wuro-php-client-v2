@@ -35,6 +35,12 @@ class Product extends AbstractModel
     public function __construct($data = [])
     {
         $this->hydrate($data);
+
+        if (isset($data->options)) {
+            foreach ($data->options as $option) {
+                $this->options[]=new ProductOption($option);
+            }
+        }
     }
 
     public function getId()
