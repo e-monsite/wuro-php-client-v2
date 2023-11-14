@@ -33,6 +33,11 @@ class ProductVariant extends AbstractModel
         return $this->stock;
     }
 
+    public function getStockQty()
+    {
+        return $this->getStock()->nb_stock;
+    }
+
     public function getState()
     {
         return $this->state;
