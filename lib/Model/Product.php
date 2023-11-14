@@ -42,6 +42,13 @@ class Product extends AbstractModel
                 $this->options[]=new ProductOption($option);
             }
         }
+
+        if (isset($data->variants)) {
+            $this->variants = [];
+            foreach ($data->variants as $variant) {
+                $this->variants[]=new ProductVariant($variant);
+            }
+        }
     }
 
     public function getId()
