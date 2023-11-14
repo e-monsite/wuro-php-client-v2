@@ -10,9 +10,19 @@ class ProductOption
 
     public $values;
 
-    public function __construct(array $data)
+    public function __construct($data)
     {
         $this->name = $data->name;
         $this->values = $data->values;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getValues()
+    {
+        return $this->values;
     }
 }
