@@ -37,6 +37,7 @@ class Product extends AbstractModel
         $this->hydrate($data);
 
         if (isset($data->options)) {
+            $this->options = [];
             foreach ($data->options as $option) {
                 $this->options[]=new ProductOption($option);
             }
