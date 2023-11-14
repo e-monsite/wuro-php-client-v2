@@ -18,6 +18,8 @@ class ProductVariant extends AbstractModel
 
     public $reference;
 
+    public $visible;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -61,5 +63,10 @@ class ProductVariant extends AbstractModel
     public function getVariantValues()
     {
         return explode('/', $this->title);
+    }
+
+    public function isVisible()
+    {
+        return $this->visible;
     }
 }
