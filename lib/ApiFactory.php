@@ -28,5 +28,7 @@ abstract class ApiFactory
                 $body[$key] = $data;
             }
         }
+
+        return $body;
     }
 }
