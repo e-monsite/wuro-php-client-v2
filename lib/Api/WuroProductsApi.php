@@ -127,5 +127,7 @@ class WuroProductsApi
         } catch (RequestException $exception) {
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
+
+        return json_decode($response->getBody()->getContents());
     }
 }
