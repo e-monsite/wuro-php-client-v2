@@ -139,7 +139,7 @@ class Product extends AbstractModel
     {
         return $this->hasStockManagement;
     }
-    
+
     public function setStock($stock): void
     {
         $this->stock = $stock;

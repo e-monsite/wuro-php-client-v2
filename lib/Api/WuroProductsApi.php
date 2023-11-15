@@ -131,14 +131,15 @@ class WuroProductsApi
         return json_decode($response->getBody()->getContents());
     }
 
-    public function updateProduct(Product $product) {
+    public function updateProduct(Product $product, array $queryParams = []) {
+        $query = Query::build($queryParams);
         $uri = 'product/' . $product->getId();
 
         try {
             $response = $this->client->send(
                 new Request(
                     'PATCH',
-                    $this->config->getHost() . $uri,
+                    $this->config->getHost() . $uri . ($query ? "?{$query}" : ''),
                     ApiFactory::getHeader(
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
