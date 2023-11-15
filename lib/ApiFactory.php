@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WuroClient\Api;
 
-abstract class HeaderFactory
+abstract class ApiFactory
 {
     public static function getHeader(string $apiPublicKey, string $apiSecretKey, string $method, string $uri, string $contentType ='application/json'): array
     {
@@ -17,5 +17,16 @@ abstract class HeaderFactory
             'X-Datetime' => $dateTime,
             'X-Signature' => hash_hmac('sha1', $CONCAT, $apiSecretKey)
         ];
+    }
+
+    public static function getBody(object $object): array
+    {
+        $body = [];
+
+        foreach ($object as $key => $data) {
+            if ($data !== null) {
+                $body[$key] = $data;
+            }
+        }
     }
 }

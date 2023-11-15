@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\Configuration;
-use WuroClient\Api\HeaderFactory;
+use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Model\ProductCategory;
 use WuroClient\Api\WuroApiException;
 
@@ -41,7 +41,7 @@ class WuroProductCategoriesApi
                 new Request(
                     'GET',
                     $this->config->getHost() . $uri . ($query ? "?{$query}" : ''),
-                    HeaderFactory::getHeader(
+                    ApiFactory::getHeader(
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
                         'GET',
