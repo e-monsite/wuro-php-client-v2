@@ -139,4 +139,74 @@ class Product extends AbstractModel
     {
         return $this->hasStockManagement;
     }
+    
+    public function setStock($stock): void
+    {
+        $this->stock = $stock;
+    }
+
+    public function setState($state): void
+    {
+        $this->state = $state;
+    }
+
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setReference($reference): void
+    {
+        $this->reference = $reference;
+    }
+
+    public function setEcotax($ecotax): void
+    {
+        $this->ecotax = $ecotax;
+    }
+
+    public function setPriceHt($price_ht): void
+    {
+        $this->price_ht = $price_ht;
+    }
+
+    public function setTvaRate($tva_rate): void
+    {
+        $this->tva_rate = $tva_rate;
+    }
+
+    public function setCategory($category): void
+    {
+        $this->category = $category;
+    }
+
+    public function setImages($images): void
+    {
+        $this->images = $images;
+    }
+
+    public function setOptions(array $options): void
+    {
+        $this->options = $options;
+    }
+
+    public function setHasVariations($hasVariations): void
+    {
+        $this->hasVariations = $hasVariations;
+    }
+
+    public function setHasStockManagement($hasStockManagement): void
+    {
+        $this->hasStockManagement = $hasStockManagement;
+    }
+
+    public function setVariants(array $variants): void
+    {
+        $this->variants = $variants;
+    }
 }
