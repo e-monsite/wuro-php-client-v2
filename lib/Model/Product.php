@@ -32,6 +32,8 @@ class Product extends AbstractModel
 
     public $hasVariations;
 
+    public $hasStockManagement;
+
     public $variants;
 
     public function __construct($data = [])
@@ -131,5 +133,10 @@ class Product extends AbstractModel
     public function hasVariations()
     {
         return $this->hasVariations;
+    }
+
+    public function getHasStockManagement()
+    {
+        return $this->hasStockManagement;
     }
 }
