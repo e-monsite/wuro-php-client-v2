@@ -65,4 +65,29 @@ class WuroProductCategoriesApi
 
         return $categories;
     }
+
+    public function createCategory(ProductCategory $category)
+    {
+        $uri = 'product-category';
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'POST',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'POST',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($category))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
 }
