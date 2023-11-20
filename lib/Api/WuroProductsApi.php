@@ -104,7 +104,9 @@ class WuroProductsApi
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
-       return json_decode($response->getBody()->getContents());
+        $content = json_decode($response->getBody()->getContents());
+
+        return new Product($content->product);
     }
 
     public function createProduct(Product $product)
