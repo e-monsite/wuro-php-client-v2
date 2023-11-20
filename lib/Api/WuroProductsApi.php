@@ -11,6 +11,7 @@ use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Model\Product;
+use WuroClient\Api\Model\ProductVariant;
 use WuroClient\Api\WuroApiException;
 
 class WuroProductsApi
@@ -144,6 +145,31 @@ class WuroProductsApi
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
                         'PATCH',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($product))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
+
+    public function createVariant(Product $product, ProductVariant $variant)
+    {
+        $uri = 'product/' . $product->getId() . '/variant';
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'POST',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'POST',
                         $uri
                     ),
                     json_encode(ApiFactory::getBody($product))
