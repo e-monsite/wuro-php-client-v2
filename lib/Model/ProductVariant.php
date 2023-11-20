@@ -18,6 +18,8 @@ class ProductVariant extends AbstractModel
 
     public $price_ht;
 
+    public $tva_rate;
+
     public $reference;
 
     public $visible;
@@ -122,5 +124,15 @@ class ProductVariant extends AbstractModel
     public function setHasStockManagement($hasStockManagement): void
     {
         $this->hasStockManagement = $hasStockManagement;
+    }
+
+    public function getTvaRate()
+    {
+        return $this->tva_rate;
+    }
+
+    public function setTvaRate($tva_rate): void
+    {
+        $this->tva_rate = $tva_rate;
     }
 }
