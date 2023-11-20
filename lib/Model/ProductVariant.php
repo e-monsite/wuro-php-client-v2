@@ -78,9 +78,49 @@ class ProductVariant extends AbstractModel
     {
         return $this->visible;
     }
-    
+
     public function getHasStockManagement()
     {
         return $this->hasStockManagement;
+    }
+
+    public function setStock($stock): void
+    {
+        $this->stock = $stock;
+    }
+
+    public function setState($state): void
+    {
+        $this->state = $state;
+    }
+
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    public function setPriceHt($price_ht): void
+    {
+        $this->price_ht = $price_ht;
+    }
+
+    public function setReference($reference): void
+    {
+        $this->reference = $reference;
+    }
+
+    public function setVisible($visible): void
+    {
+        $this->visible = $visible;
+    }
+
+    public function setHasStockManagement($hasStockManagement): void
+    {
+        $this->hasStockManagement = $hasStockManagement;
     }
 }
