@@ -183,4 +183,29 @@ class WuroProductsApi
 
         return json_decode($response->getBody()->getContents());
     }
+
+    public function updateVariant(ProductVariant $variant, string $productId)
+    {
+        $uri = 'product/' . $productId . '/variant/' . $variant->getId();
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'PATCH',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'PATCH',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($variant))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
 }
