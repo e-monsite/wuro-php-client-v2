@@ -157,9 +157,9 @@ class WuroProductsApi
         return json_decode($response->getBody()->getContents());
     }
 
-    public function createVariant(Product $product, ProductVariant $variant)
+    public function createVariant(ProductVariant $variant, string $productId)
     {
-        $uri = 'product/' . $product->getId() . '/variant';
+        $uri = 'product/' . $productId . '/variant';
 
         try {
             $response = $this->client->send(
@@ -172,7 +172,7 @@ class WuroProductsApi
                         'POST',
                         $uri
                     ),
-                    json_encode(ApiFactory::getBody($product))
+                    json_encode(ApiFactory::getBody($variant))
                 )
             );
         } catch (RequestException $exception) {
