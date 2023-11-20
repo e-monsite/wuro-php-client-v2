@@ -12,6 +12,8 @@ class ProductVariant extends AbstractModel
 
     public $state;
 
+    public $name;
+
     public $title;
 
     public $price_ht;
@@ -43,6 +45,11 @@ class ProductVariant extends AbstractModel
     public function getState()
     {
         return $this->state;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
     public function getTitle()
