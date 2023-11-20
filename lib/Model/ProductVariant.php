@@ -22,6 +22,8 @@ class ProductVariant extends AbstractModel
 
     public $visible;
 
+    public $hasStockManagement;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -75,5 +77,10 @@ class ProductVariant extends AbstractModel
     public function isVisible()
     {
         return $this->visible;
+    }
+    
+    public function getHasStockManagement()
+    {
+        return $this->hasStockManagement;
     }
 }
