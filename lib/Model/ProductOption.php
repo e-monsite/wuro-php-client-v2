@@ -25,4 +25,14 @@ class ProductOption
     {
         return $this->values;
     }
+
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setValues($values): void
+    {
+        $this->values = $values;
+    }
 }
