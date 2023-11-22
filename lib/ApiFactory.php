@@ -29,8 +29,6 @@ abstract class ApiFactory
             }
         }
 
-        dd($body);
-
         return $body;
     }
 }
