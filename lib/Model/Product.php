@@ -22,6 +22,8 @@ class Product extends AbstractModel
 
     public $price_ht;
 
+    public $cost_price;
+
     public $tva_rate;
 
     public $category;
@@ -208,5 +210,15 @@ class Product extends AbstractModel
     public function setVariants(array $variants): void
     {
         $this->variants = $variants;
+    }
+
+    public function getCostPrice()
+    {
+        return $this->cost_price;
+    }
+
+    public function setCostPrice($cost_price): void
+    {
+        $this->cost_price = $cost_price;
     }
 }
