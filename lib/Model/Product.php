@@ -22,7 +22,7 @@ class Product extends AbstractModel
 
     public $price_ht;
 
-    public $cost_price;
+    public $buying_price;
 
     public $tva_rate;
 
@@ -212,13 +212,13 @@ class Product extends AbstractModel
         $this->variants = $variants;
     }
 
-    public function getCostPrice()
+    public function getBuyingPrice()
     {
-        return $this->cost_price;
+        return $this->buying_price;
     }
 
-    public function setCostPrice($cost_price): void
+    public function setBuyingPrice($buying_price): void
     {
-        $this->cost_price = $cost_price;
+        $this->buying_price = $buying_price;
     }
 }
