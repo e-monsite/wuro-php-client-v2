@@ -66,6 +66,8 @@ class WuroProductsApi
 
         $content = json_decode($response->getBody()->getContents());
 
+        $products = [];
+
         foreach ($content->products as $product) {
             $products[$product->_id] = new Product($product);
         }
