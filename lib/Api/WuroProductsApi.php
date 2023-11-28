@@ -42,7 +42,7 @@ class WuroProductsApi
     {
         $query = Query::build($queryParams);
         $uri = 'products';
-dd($this->config->getHost() . $uri . ($query ? "?{$query}" : ''));
+
         try {
             $response = $this->client->send(
                 new Request(
