@@ -14,6 +14,8 @@ class ProductVariant extends AbstractModel
 
     public $name;
 
+    public $product;
+
     public $title;
 
     public $price_ht;
@@ -134,5 +136,10 @@ class ProductVariant extends AbstractModel
     public function setTvaRate($tva_rate): void
     {
         $this->tva_rate = $tva_rate;
+    }
+
+    public function getProduct()
+    {
+        return $this->product;
     }
 }
