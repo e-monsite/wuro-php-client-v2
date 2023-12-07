@@ -38,9 +38,15 @@ class Product extends AbstractModel
 
     public $variants;
 
+    public $rawOptions;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
+
+        if (isset($data->options)) {
+            $this->rawOptions = $data->options;
+        }
 
         if (isset($data->options)) {
             $this->options = [];
@@ -220,5 +226,10 @@ class Product extends AbstractModel
     public function setBuyingPrice($buying_price): void
     {
         $this->buying_price = $buying_price;
+    }
+
+    public function getRawOptions()
+    {
+        return $this->rawOptions;
     }
 }
