@@ -6,6 +6,7 @@ namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
 use Wuro\Api\Model\Quote;
+use WuroClient\Api\Configuration;
 
 class WuroQuoteApi
 {
