@@ -10,6 +10,7 @@ class Quote extends AbstractModel
     public $date;
     public $currency;
     public $state;
+    public $comment;
     public $company_name;
     public $company_email;
     public $company_address;
@@ -63,6 +64,16 @@ class Quote extends AbstractModel
     public function setDate($date): void
     {
         $this->date = $date;
+    }
+
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    public function setComment($comment): void
+    {
+        $this->comment = $comment;
     }
 
     public function getCompanyName()
