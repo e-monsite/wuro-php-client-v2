@@ -25,6 +25,7 @@ class Quote extends AbstractModel
     public $client_zip_code;
     public $client_city;
     public $client_country;
+    public $client_professional;
 
 
     public $delivery_contact;
@@ -202,6 +203,17 @@ class Quote extends AbstractModel
     {
         $this->client_country = $client_country;
     }
+
+    public function getClientProfessional()
+    {
+        return $this->client_professional;
+    }
+
+    public function setClientProfessional($client_professional): void
+    {
+        $this->client_professional = $client_professional;
+    }
+
 
     public function getDeliveryContact()
     {
