@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
-use Wuro\Api\Model\Quote;
 use WuroClient\Api\Configuration;
+use WuroClient\Api\Model\Quote;
 
 class WuroQuoteApi
 {
