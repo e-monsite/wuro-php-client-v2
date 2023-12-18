@@ -47,9 +47,6 @@ class Invoice extends AbstractModel
     public $shipping_total_ht;
     public $shipping_tva_rate;
 
-    public $globalDiscount;
-    public $hasReduction;
-
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -399,25 +396,5 @@ class Invoice extends AbstractModel
     public function setShippingTvaRate($shipping_tva_rate): void
     {
         $this->shipping_tva_rate = $shipping_tva_rate;
-    }
-
-    public function getGlobalDiscount()
-    {
-        return $this->globalDiscount;
-    }
-
-    public function setGlobalDiscount($globalDiscount): void
-    {
-        $this->globalDiscount = $globalDiscount;
-    }
-
-    public function getHasReduction()
-    {
-        return $this->hasReduction;
-    }
-
-    public function setHasReduction($hasReduction): void
-    {
-        $this->hasReduction = $hasReduction;
     }
 }
