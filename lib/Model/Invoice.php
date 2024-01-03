@@ -47,6 +47,8 @@ class Invoice extends AbstractModel
     public $shipping_total_ht;
     public $shipping_tva_rate;
 
+    public $payments;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -396,5 +398,15 @@ class Invoice extends AbstractModel
     public function setShippingTvaRate($shipping_tva_rate): void
     {
         $this->shipping_tva_rate = $shipping_tva_rate;
+    }
+
+    public function getPayments()
+    {
+        return $this->payments;
+    }
+
+    public function setPayments($payments): void
+    {
+        $this->payments = $payments;
     }
 }
