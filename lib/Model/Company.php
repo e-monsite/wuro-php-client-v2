@@ -11,6 +11,11 @@ class Company extends AbstractModel
     public $url;
     public $emails;
 
+    public function __construct($data = [])
+    {
+        $this->hydrate($data);
+    }
+
     public function getId()
     {
         return $this->_id;
