@@ -10,4 +10,44 @@ class Company extends AbstractModel
     public $name;
     public $url;
     public $emails;
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function setId($id): void
+    {
+        $this->_id = $id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    public function setUrl($url): void
+    {
+        $this->url = $url;
+    }
+
+    public function getEmails()
+    {
+        return $this->emails;
+    }
+
+    public function setEmails($emails): void
+    {
+        $this->emails = $emails;
+    }
 }
