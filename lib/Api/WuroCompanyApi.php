@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7\Request;
+use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\Model\Company;
+
 
 class WuroCompanyApi
 {
