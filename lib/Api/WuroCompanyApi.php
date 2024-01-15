@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\Model\Company;
+use WuroClient\Api\WuroApiException;
 
 
 class WuroCompanyApi
@@ -52,5 +54,30 @@ class WuroCompanyApi
         $content = json_decode($response->getBody()->getContents());
 
         return new Company($content->company);
+    }
+
+    public function createCompany(Company $company)
+    {
+        $uri = 'company/';
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'POST',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'POST',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($company))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
     }
 }
