@@ -92,6 +92,31 @@ class WuroWebhookApi
         return json_decode($response->getBody()->getContents());
     }
 
+    public function updateWebhook(Webhook $webhook)
+    {
+        $uri = 'webhook/' . $webhook->getId();
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'PATCH',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'PATCH',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($webhook))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
+
     public function deleteWebhook(Webhook $webhook)
     {
         $uri = 'webhook/' . $webhook->getId();
