@@ -6,10 +6,12 @@ namespace WuroClient\Api\Api;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Configuration;
 use WuroClient\Api\Model\Company;
+use WuroClient\Api\Model\Product;
 use WuroClient\Api\WuroApiException;
 
 
@@ -69,6 +71,30 @@ class WuroCompanyApi
                         $this->config->getApiPublicKey(),
                         $this->config->getApiSecretKey(),
                         'POST',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($company))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
+
+    public function updateCompany(Company $company) {
+        $uri = 'company/' . $company->getId();
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'PATCH',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'PATCH',
                         $uri
                     ),
                     json_encode(ApiFactory::getBody($company))
