@@ -13,6 +13,7 @@ class Company extends AbstractModel
     public $siren;
     public $siret;
     public $tva_number;
+    public $active;
 
     public function __construct($data = [])
     {
@@ -87,5 +88,15 @@ class Company extends AbstractModel
     public function setTvaNumber($tva_number): void
     {
         $this->tva_number = $tva_number;
+    }
+
+    public function isActive()
+    {
+        return $this->active;
+    }
+    
+    public function setActive($active): void
+    {
+        $this->active = $active;
     }
 }
