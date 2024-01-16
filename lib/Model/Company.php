@@ -9,7 +9,10 @@ class Company extends AbstractModel
     public $_id;
     public $name;
     public $url;
-    public $emails;
+    public $address;
+    public $siren;
+    public $siret;
+    public $tva_number;
 
     public function __construct($data = [])
     {
@@ -46,13 +49,43 @@ class Company extends AbstractModel
         $this->url = $url;
     }
 
-    public function getEmails()
+    public function getAddress()
     {
-        return $this->emails;
+        return $this->address;
     }
 
-    public function setEmails($emails): void
+    public function setAddress($address): void
     {
-        $this->emails = $emails;
+        $this->address = $address;
+    }
+
+    public function getSiren()
+    {
+        return $this->siren;
+    }
+
+    public function setSiren($siren): void
+    {
+        $this->siren = $siren;
+    }
+
+    public function getSiret()
+    {
+        return $this->siret;
+    }
+
+    public function setSiret($siret): void
+    {
+        $this->siret = $siret;
+    }
+
+    public function getTvaNumber()
+    {
+        return $this->tva_number;
+    }
+
+    public function setTvaNumber($tva_number): void
+    {
+        $this->tva_number = $tva_number;
     }
 }
