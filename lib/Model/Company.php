@@ -13,6 +13,8 @@ class Company extends AbstractModel
     public $siren;
     public $siret;
     public $tva_number;
+    public $naf_ape;
+    public $nic;
     public $active;
 
     public function __construct($data = [])
@@ -94,9 +96,29 @@ class Company extends AbstractModel
     {
         return $this->active;
     }
-    
+
     public function setActive($active): void
     {
         $this->active = $active;
+    }
+
+    public function getNafApe()
+    {
+        return $this->naf_ape;
+    }
+
+    public function setNafApe($naf_ape): void
+    {
+        $this->naf_ape = $naf_ape;
+    }
+
+    public function getNic()
+    {
+        return $this->nic;
+    }
+
+    public function setNic($nic): void
+    {
+        $this->nic = $nic;
     }
 }
