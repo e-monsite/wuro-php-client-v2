@@ -15,7 +15,7 @@ class Company extends AbstractModel
     public $tva_number;
     public $naf_ape;
     public $nic;
-    public $active;
+    public $active = true;
 
     public function __construct($data = [])
     {
