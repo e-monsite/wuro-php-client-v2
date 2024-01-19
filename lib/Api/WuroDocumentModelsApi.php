@@ -53,6 +53,12 @@ class WuroDocumentModelsApi
 
         $content = json_decode($response->getBody()->getContents());
 
-        return new DocumentModel($content->documentModels);
+        $documents = [];
+
+        foreach ($content->documentModels as $document) {
+            $documents[$document->_id] = new DocumentModel($document);
+        }
+
+        return $documents;
     }
 }
