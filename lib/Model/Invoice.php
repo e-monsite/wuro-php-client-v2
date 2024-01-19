@@ -49,6 +49,8 @@ class Invoice extends AbstractModel
 
     public $payments;
 
+    public $documentModel;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -408,5 +410,15 @@ class Invoice extends AbstractModel
     public function setPayments($payments): void
     {
         $this->payments = $payments;
+    }
+
+    public function getDocumentModel()
+    {
+        return $this->documentModel;
+    }
+
+    public function setDocumentModel($documentModel): void
+    {
+        $this->documentModel = $documentModel;
     }
 }
