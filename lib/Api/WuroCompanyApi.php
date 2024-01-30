@@ -58,6 +58,32 @@ class WuroCompanyApi
         return new Company($content->company);
     }
 
+    public function getCompanyById(string $companyId)
+    {
+        $uri = 'company/' . $companyId;
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'GET',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'GET',
+                        $uri
+                    )
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        $content = json_decode($response->getBody()->getContents());
+
+        return new Company($content->company);
+    }
+
     public function createCompany(Company $company)
     {
         $uri = 'company/';

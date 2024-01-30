@@ -10,6 +10,7 @@ class Company extends AbstractModel
     public $name;
     public $url;
     public $address;
+    public $emails;
     public $siren;
     public $siret;
     public $tva_number;
@@ -120,5 +121,10 @@ class Company extends AbstractModel
     public function setNic($nic): void
     {
         $this->nic = $nic;
+    }
+
+    public function getEmails()
+    {
+        return $this->emails;
     }
 }
