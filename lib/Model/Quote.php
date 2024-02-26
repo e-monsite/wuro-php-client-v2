@@ -28,7 +28,9 @@ class Quote extends AbstractModel
     public $client_city;
     public $client_country;
     public $client_professional;
-
+    public $client_email;
+    public $client_phone;
+    public $client_mobile;
 
     public $delivery_contact;
     public $delivery_name;
@@ -384,5 +386,35 @@ class Quote extends AbstractModel
     public function setShippingTvaRate($shipping_tva_rate): void
     {
         $this->shipping_tva_rate = $shipping_tva_rate;
+    }
+
+    public function getClientEmail()
+    {
+        return $this->client_email;
+    }
+
+    public function setClientEmail($client_email): void
+    {
+        $this->client_email = $client_email;
+    }
+
+    public function getClientPhone()
+    {
+        return $this->client_phone;
+    }
+
+    public function setClientPhone($client_phone): void
+    {
+        $this->client_phone = $client_phone;
+    }
+
+    public function getClientMobile()
+    {
+        return $this->client_mobile;
+    }
+
+    public function setClientMobile($client_mobile): void
+    {
+        $this->client_mobile = $client_mobile;
     }
 }
