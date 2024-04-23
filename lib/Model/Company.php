@@ -9,7 +9,7 @@ class Company extends AbstractModel
     public $_id;
     public $name;
     public $url;
-    public $address;
+    public $addresses;
     public $emails;
     public $siren;
     public $siret;
