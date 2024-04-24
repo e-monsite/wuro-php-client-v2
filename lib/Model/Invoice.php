@@ -22,6 +22,9 @@ class Invoice extends AbstractModel
     public $company_country_code;
     public $company_phone;
     public $company_has_tva_franchise;
+    public $company_nic;
+    public $company_siren;
+    public $company_naf_ape;
 
     public $client_civility;
     public $client_contact;
@@ -444,7 +447,7 @@ class Invoice extends AbstractModel
     {
         $this->company_phone = $company_phone;
     }
-    
+
     public function getCompanyHasTvaFranchise()
     {
         return $this->company_has_tva_franchise;
@@ -453,5 +456,35 @@ class Invoice extends AbstractModel
     public function setCompanyHasTvaFranchise($company_has_tva_franchise): void
     {
         $this->company_has_tva_franchise = $company_has_tva_franchise;
+    }
+
+    public function getCompanyNic()
+    {
+        return $this->company_nic;
+    }
+
+    public function setCompanyNic($company_nic): void
+    {
+        $this->company_nic = $company_nic;
+    }
+
+    public function getCompanySiren()
+    {
+        return $this->company_siren;
+    }
+
+    public function setCompanySiren($company_siren): void
+    {
+        $this->company_siren = $company_siren;
+    }
+
+    public function getCompanyNafApe()
+    {
+        return $this->company_naf_ape;
+    }
+
+    public function setCompanyNafApe($company_naf_ape): void
+    {
+        $this->company_naf_ape = $company_naf_ape;
     }
 }
