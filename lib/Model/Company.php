@@ -17,6 +17,7 @@ class Company extends AbstractModel
     public $naf_ape;
     public $nic;
     public $active = true;
+    public $company_type;
 
     public function __construct($data = [])
     {
@@ -51,16 +52,6 @@ class Company extends AbstractModel
     public function setUrl($url): void
     {
         $this->url = $url;
-    }
-
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    public function setAddress($address): void
-    {
-        $this->address = $address;
     }
 
     public function getSiren()
@@ -126,5 +117,25 @@ class Company extends AbstractModel
     public function getEmails()
     {
         return $this->emails;
+    }
+
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    public function setAddresses($addresses): void
+    {
+        $this->addresses = $addresses;
+    }
+
+    public function getCompanyType()
+    {
+        return $this->company_type;
+    }
+
+    public function setCompanyType($company_type): void
+    {
+        $this->company_type = $company_type;
     }
 }
