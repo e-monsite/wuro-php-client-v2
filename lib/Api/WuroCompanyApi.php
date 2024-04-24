@@ -54,7 +54,7 @@ class WuroCompanyApi
         }
 
         $content = json_decode($response->getBody()->getContents());
-
+dd($content);
         return new Company($content->company);
     }
 
