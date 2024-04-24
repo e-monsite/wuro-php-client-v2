@@ -11,6 +11,7 @@ class Quote extends AbstractModel
     public $currency;
     public $state;
     public $comment;
+    public $notes;
     public $company_name;
     public $company_email;
     public $company_address;
@@ -18,6 +19,8 @@ class Quote extends AbstractModel
     public $company_zip_code;
     public $company_city;
     public $company_country_code;
+
+    public $company_phone;
 
     public $client_civility;
     public $client_contact;
@@ -416,5 +419,25 @@ class Quote extends AbstractModel
     public function setClientMobile($client_mobile): void
     {
         $this->client_mobile = $client_mobile;
+    }
+
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    public function setNotes($notes): void
+    {
+        $this->notes = $notes;
+    }
+
+    public function getCompanyPhone()
+    {
+        return $this->company_phone;
+    }
+
+    public function setCompanyPhone($company_phone): void
+    {
+        $this->company_phone = $company_phone;
     }
 }
