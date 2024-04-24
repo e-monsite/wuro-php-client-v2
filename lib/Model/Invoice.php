@@ -21,6 +21,7 @@ class Invoice extends AbstractModel
     public $company_city;
     public $company_country_code;
     public $company_phone;
+    public $company_has_tva_franchise;
 
     public $client_civility;
     public $client_contact;
@@ -442,5 +443,15 @@ class Invoice extends AbstractModel
     public function setCompanyPhone($company_phone): void
     {
         $this->company_phone = $company_phone;
+    }
+    
+    public function getCompanyHasTvaFranchise()
+    {
+        return $this->company_has_tva_franchise;
+    }
+
+    public function setCompanyHasTvaFranchise($company_has_tva_franchise): void
+    {
+        $this->company_has_tva_franchise = $company_has_tva_franchise;
     }
 }
