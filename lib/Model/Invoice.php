@@ -50,6 +50,7 @@ class Invoice extends AbstractModel
 
     public $invoice_lines;
 
+    public $shipping_method;
     public $shipping_total_ht;
     public $shipping_tva_rate;
 
@@ -486,5 +487,15 @@ class Invoice extends AbstractModel
     public function setCompanyNafApe($company_naf_ape): void
     {
         $this->company_naf_ape = $company_naf_ape;
+    }
+
+    public function getShippingMethod()
+    {
+        return $this->shipping_method;
+    }
+
+    public function setShippingMethod($shipping_method): void
+    {
+        $this->shipping_method = $shipping_method;
     }
 }
