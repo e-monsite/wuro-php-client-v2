@@ -35,6 +35,9 @@ class Invoice extends AbstractModel
     public $client_city;
     public $client_country;
     public $client_professional;
+    public $client_email;
+    public $client_phone;
+    public $client_mobile;
 
 
     public $delivery_contact;
