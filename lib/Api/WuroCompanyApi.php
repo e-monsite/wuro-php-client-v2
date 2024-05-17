@@ -106,8 +106,8 @@ class WuroCompanyApi
         }
 
         $content = json_decode($response->getBody()->getContents());
-dd($content);
-        return $content->versions;
+
+        return $content->companyApp->versions;
     }
 
     public function createCompany(Company $company)
