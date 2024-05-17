@@ -106,7 +106,7 @@ class WuroCompanyApi
         }
 
         $content = json_decode($response->getBody()->getContents());
-
+dd($content);
         return $content->versions;
     }
 
