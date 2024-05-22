@@ -30,7 +30,7 @@ class WuroDocumentNumberApi
 
     public function getDocumentNumber()
     {
-        $uri = 'document-numeration';
+        $uri = 'document-numbers';
 
         try {
             $response = $this->client->send(
