@@ -11,7 +11,7 @@ use WuroClient\Api\Configuration;
 use GuzzleHttp\Psr7\Request;
 use WuroClient\Api\WuroApiException;
 
-class WuroDocumentNumerationApi
+class WuroDocumentNumberApi
 {
     private $client;
     private $config;
