@@ -60,4 +60,28 @@ class WuroDocumentNumberApi
 
         return $documentNumbers;
     }
+
+    public function updateDocumentNumber(DocumentNumber $documentNumber)
+    {
+        $uri = 'document-number/' . $documentNumber->getId();
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'PATCH',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'PATCH',
+                        $uri
+                    )
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
 }
