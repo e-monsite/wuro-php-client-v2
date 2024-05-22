@@ -8,8 +8,8 @@ class DocumentNumber extends AbstractModel
 {
     public $_id;
     public $format;
-    public $resetOption;
-    public $name;
+    public $resetOption = "none";
+    public $name = "invoices";
     public $current;
 
     public function __construct($data = [])
