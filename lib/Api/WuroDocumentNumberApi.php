@@ -52,6 +52,12 @@ class WuroDocumentNumberApi
 
         $content = json_decode($response->getBody()->getContents());
 
-        return new DocumentNumber($content->documentNumbers);
+        $documentNumbers = [];
+
+        foreach ($content->documentNumbers as $documentNumber) {
+            $documentNumbers[$documentNumber->_id] = new DocumentNumber($documentNumber);
+        }
+
+        return $documentNumbers;
     }
 }

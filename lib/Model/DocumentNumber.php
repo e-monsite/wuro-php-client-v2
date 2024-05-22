@@ -6,7 +6,7 @@ namespace WuroClient\Api\Model;
 
 class DocumentNumber extends AbstractModel
 {
-    public $id;
+    public $_id;
     public $format;
     public $resetOption;
     public $name;
@@ -59,6 +59,6 @@ class DocumentNumber extends AbstractModel
 
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 }
