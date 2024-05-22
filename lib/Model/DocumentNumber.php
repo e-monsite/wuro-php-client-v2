@@ -61,4 +61,9 @@ class DocumentNumber extends AbstractModel
     {
         return $this->_id;
     }
+
+    public function setId($id): void
+    {
+        $this->_id = $id;
+    }
 }
