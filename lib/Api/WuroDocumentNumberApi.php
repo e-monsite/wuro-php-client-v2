@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\RequestException;
 use WuroClient\Api\ApiFactory;
 use WuroClient\Api\Configuration;
 use GuzzleHttp\Psr7\Request;
+use WuroClient\Api\Model\DocumentNumber;
 use WuroClient\Api\WuroApiException;
 
 class WuroDocumentNumberApi
@@ -50,7 +51,7 @@ class WuroDocumentNumberApi
         }
 
         $content = json_decode($response->getBody()->getContents());
-dd($content);
-        return $content->documentNumber;
+
+        return new DocumentNumber($content->documentNumbers);
     }
 }
