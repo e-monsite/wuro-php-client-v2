@@ -50,7 +50,7 @@ class WuroDocumentNumberApi
         }
 
         $content = json_decode($response->getBody()->getContents());
-
+dd($content);
         return $content->documentNumber;
     }
 }
