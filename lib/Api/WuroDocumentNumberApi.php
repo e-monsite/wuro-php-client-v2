@@ -75,13 +75,14 @@ class WuroDocumentNumberApi
                         $this->config->getApiSecretKey(),
                         'PATCH',
                         $uri
-                    )
+                    ),
+                    json_encode(ApiFactory::getBody($documentNumber))
                 )
             );
         } catch (RequestException $exception) {
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
-dd(json_decode($response->getBody()->getContents()));
+
         return json_decode($response->getBody()->getContents());
     }
 }
