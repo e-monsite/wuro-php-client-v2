@@ -61,6 +61,31 @@ class WuroDocumentNumberApi
         return $documentNumbers;
     }
 
+    public function createDocumentNumber(DocumentNumber $documentNumber)
+    {
+        $uri = 'document-number';
+
+        try {
+            $response = $this->client->send(
+                new Request(
+                    'POST',
+                    $this->config->getHost() . $uri,
+                    ApiFactory::getHeader(
+                        $this->config->getApiPublicKey(),
+                        $this->config->getApiSecretKey(),
+                        'POST',
+                        $uri
+                    ),
+                    json_encode(ApiFactory::getBody($documentNumber))
+                )
+            );
+        } catch (RequestException $exception) {
+            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+        }
+
+        return json_decode($response->getBody()->getContents());
+    }
+
     public function updateDocumentNumber(DocumentNumber $documentNumber)
     {
         $uri = 'document-number/' . $documentNumber->getId();
