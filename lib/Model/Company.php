@@ -139,4 +139,9 @@ class Company extends AbstractModel
     {
         $this->company_type = $company_type;
     }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 }
