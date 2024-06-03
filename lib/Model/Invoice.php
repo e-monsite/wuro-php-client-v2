@@ -501,4 +501,9 @@ class Invoice extends AbstractModel
     {
         $this->shipping_method = $shipping_method;
     }
+
+    public function setId($id): void
+    {
+        $this->_id = $id;
+    }
 }
