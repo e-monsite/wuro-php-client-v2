@@ -130,7 +130,8 @@ class WuroProductsApi
                 )
             );
         } catch (RequestException $exception) {
-            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+            $message = $exception->getMessage() . ' Product (name: ' . $product->getName() . ' ref: ' . $product->getReference() . ')';
+            throw new WuroApiException($message, $exception->getCode());
         }
 
         return json_decode($response->getBody()->getContents());
@@ -155,7 +156,8 @@ class WuroProductsApi
                 )
             );
         } catch (RequestException $exception) {
-            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+            $message = $exception->getMessage() . ' Product (id: ' . $product->getId() . ')';
+            throw new WuroApiException($message, $exception->getCode());
         }
 
         return json_decode($response->getBody()->getContents());
@@ -180,6 +182,7 @@ class WuroProductsApi
                 )
             );
         } catch (RequestException $exception) {
+            $message = $exception->getMessage() . ' Product (id: ' . $productId . ')';
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
@@ -205,6 +208,7 @@ class WuroProductsApi
                 )
             );
         } catch (RequestException $exception) {
+            $message = $exception->getMessage() . ' Product (id: ' . $productId . ')';
             throw new WuroApiException($exception->getMessage(), $exception->getCode());
         }
 
