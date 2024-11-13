@@ -183,7 +183,7 @@ class WuroProductsApi
             );
         } catch (RequestException $exception) {
             $message = $exception->getMessage() . ' Product (id: ' . $productId . ')';
-            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+            throw new WuroApiException($message, $exception->getCode());
         }
 
         return json_decode($response->getBody()->getContents());
@@ -209,7 +209,7 @@ class WuroProductsApi
             );
         } catch (RequestException $exception) {
             $message = $exception->getMessage() . ' Product (id: ' . $productId . ')';
-            throw new WuroApiException($exception->getMessage(), $exception->getCode());
+            throw new WuroApiException($message, $exception->getCode());
         }
 
         return json_decode($response->getBody()->getContents());
