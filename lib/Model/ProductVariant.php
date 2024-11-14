@@ -28,6 +28,8 @@ class ProductVariant extends AbstractModel
 
     public $hasStockManagement;
 
+    public $images;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -141,5 +143,15 @@ class ProductVariant extends AbstractModel
     public function getProduct()
     {
         return $this->product;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function setImages($images): void
+    {
+        $this->images = $images;
     }
 }
