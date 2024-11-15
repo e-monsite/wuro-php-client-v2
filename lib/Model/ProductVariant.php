@@ -14,6 +14,8 @@ class ProductVariant extends AbstractModel
 
     public $name;
 
+    public $category;
+
     public $product;
 
     public $title;
@@ -153,5 +155,15 @@ class ProductVariant extends AbstractModel
     public function setImages($images): void
     {
         $this->images = $images;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category): void
+    {
+        $this->category = $category;
     }
 }
