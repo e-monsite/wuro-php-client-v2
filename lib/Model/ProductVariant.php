@@ -32,6 +32,8 @@ class ProductVariant extends AbstractModel
 
     public $images;
 
+    public $description;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -165,5 +167,15 @@ class ProductVariant extends AbstractModel
     public function setCategory($category): void
     {
         $this->category = $category;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 }
