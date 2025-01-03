@@ -50,6 +50,7 @@ class Quote extends AbstractModel
 
     public $shipping_total_ht;
     public $shipping_tva_rate;
+    public $payment_delay;
 
     public function __construct($data = [])
     {
@@ -439,5 +440,15 @@ class Quote extends AbstractModel
     public function setCompanyPhone($company_phone): void
     {
         $this->company_phone = $company_phone;
+    }
+
+    public function getPaymentDelay()
+    {
+        return $this->payment_delay;
+    }
+
+    public function setPaymentDelay($payment_delay): void
+    {
+        $this->payment_delay = $payment_delay;
     }
 }
