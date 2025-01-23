@@ -12,7 +12,6 @@ class Quote extends AbstractModel
     public $state;
     public $comment;
     public $notes;
-    public $name;
 
     public $company_name;
     public $company_email;
@@ -464,15 +463,5 @@ class Quote extends AbstractModel
     public function setType($type): void
     {
         $this->type = $type;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 }
