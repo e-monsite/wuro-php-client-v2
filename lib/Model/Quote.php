@@ -52,6 +52,8 @@ class Quote extends AbstractModel
     public $shipping_tva_rate;
     public $payment_delay;
 
+    public $type;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -450,5 +452,15 @@ class Quote extends AbstractModel
     public function setPaymentDelay($payment_delay): void
     {
         $this->payment_delay = $payment_delay;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type): void
+    {
+        $this->type = $type;
     }
 }
