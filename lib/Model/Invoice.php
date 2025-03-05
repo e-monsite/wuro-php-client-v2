@@ -60,6 +60,8 @@ class Invoice extends AbstractModel
     public $payments;
 
     public $footer_complement;
+    public $footer_complement_end;
+    public $mandatory_mentions;
 
     public $documentModel;
 
