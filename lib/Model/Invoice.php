@@ -59,8 +59,6 @@ class Invoice extends AbstractModel
 
     public $payments;
 
-    public $custom_data;
-
     public $documentModel;
 
     public function __construct($data = [])
@@ -502,16 +500,6 @@ class Invoice extends AbstractModel
     public function setShippingMethod($shipping_method): void
     {
         $this->shipping_method = $shipping_method;
-    }
-
-    public function getCustomData()
-    {
-        return $this->custom_data;
-    }
-
-    public function setCustomData($custom_data): void
-    {
-        $this->custom_data = $custom_data;
     }
 
     public function setId($id): void
