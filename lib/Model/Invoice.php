@@ -59,6 +59,8 @@ class Invoice extends AbstractModel
 
     public $payments;
 
+    public $footer_complement;
+
     public $documentModel;
 
     public function __construct($data = [])
@@ -505,5 +507,15 @@ class Invoice extends AbstractModel
     public function setId($id): void
     {
         $this->_id = $id;
+    }
+
+    public function getFooterComplement()
+    {
+        return $this->footer_complement;
+    }
+
+    public function setFooterComplement($footer_complement): void
+    {
+        $this->footer_complement = $footer_complement;
     }
 }
