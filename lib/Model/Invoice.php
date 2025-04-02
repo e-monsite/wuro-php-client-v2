@@ -61,6 +61,10 @@ class Invoice extends AbstractModel
 
     public $documentModel;
 
+    public $discount_total_ht;
+
+    public $discount_total_type;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -505,5 +509,25 @@ class Invoice extends AbstractModel
     public function setId($id): void
     {
         $this->_id = $id;
+    }
+
+    public function getDiscountTotalType()
+    {
+        return $this->discount_total_type;
+    }
+
+    public function setDiscountTotalType($discount_total_type): void
+    {
+        $this->discount_total_type = $discount_total_type;
+    }
+
+    public function getDiscountTotalHt()
+    {
+        return $this->discount_total_ht;
+    }
+
+    public function setDiscountTotalHt($discount_total_ht): void
+    {
+        $this->discount_total_ht = $discount_total_ht;
     }
 }
