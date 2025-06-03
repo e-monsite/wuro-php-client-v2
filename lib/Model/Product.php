@@ -38,7 +38,7 @@ class Product extends AbstractModel
 
     public $variants;
 
-    public $url_text;
+    public $url_ext;
 
     public function __construct($data = [])
     {
@@ -224,13 +224,13 @@ class Product extends AbstractModel
         $this->buying_price = $buying_price;
     }
 
-    public function getUrlText()
+    public function getUrlExt()
     {
-        return $this->url_text;
+        return $this->url_ext;
     }
 
-    public function setUrlText($url_text): void
+    public function setUrlExt($url_ext): void
     {
-        $this->url_text = $url_text;
+        $this->url_ext = $url_ext;
     }
 }
