@@ -38,6 +38,8 @@ class Product extends AbstractModel
 
     public $variants;
 
+    public $url_text;
+
     public function __construct($data = [])
     {
         $this->hydrate($data);
@@ -220,5 +222,15 @@ class Product extends AbstractModel
     public function setBuyingPrice($buying_price): void
     {
         $this->buying_price = $buying_price;
+    }
+
+    public function getUrlText()
+    {
+        return $this->url_text;
+    }
+
+    public function setUrlText($url_text): void
+    {
+        $this->url_text = $url_text;
     }
 }
