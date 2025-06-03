@@ -69,7 +69,6 @@ class WuroProductsApi
         $products = [];
 
         foreach ($content->products as $product) {
-            dump($product);
             $products[$product->_id] = new Product($product);
         }
 
