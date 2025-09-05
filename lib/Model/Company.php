@@ -19,6 +19,7 @@ class Company extends AbstractModel
     public $active = true;
     public $company_type;
     public $createdAt;
+    public $logo;
 
     public function __construct($data = [])
     {
